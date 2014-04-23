@@ -8,10 +8,31 @@
   <div class="panel-body">
     <p><%= simple_format(@charity.description) %></p>
     <hr>
-    <p>Founded: <%= @charity.founded %></p>
+    <p>Founded: <%= (@charity.founded).strftime('%B %d, %Y') %></p>
   </div>
 </div>
-<%= link_to 'Edit Charity', "#", class: 'btn btn-info', data: { toggle: 'modal', target: '#edit-charity'} %>
+<div class="row">
+  <%= link_to "One Time Donation To #{@charity.name}", "#", class: 'btn btn-success', data: { toggle: 'modal', target: '#donate-charity'} %>
+</div>
+<br>
+<div class="row">
+  <%= link_to 'Edit Charity', "#", class: 'btn btn-info', data: { toggle: 'modal', target: '#edit-charity'} %>
+  <%= link_to "Remove Charity", charity_path, method: "delete", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+</div>
+
+<div class="modal fade" id="donate-charity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Donate to <%= @charity.name %></h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'charges/form' %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="modal fade" id="edit-charity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -26,5 +47,3 @@
     </div>
   </div>
 </div>
-
-<%= link_to "Remove Charity", charity_path, method: "delete", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>

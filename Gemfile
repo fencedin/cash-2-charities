@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
+
 gem 'rails'
 gem 'pg'
 gem 'sass-rails'
@@ -11,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'cancancan'
 gem 'rest-client'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development do
   gem 'better_errors'

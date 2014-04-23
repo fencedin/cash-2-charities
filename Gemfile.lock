@@ -8,7 +8,17 @@ GIT
       cocaine (~> 0.5.3)
       mime-types
 
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 48f76057f425ab5c3bb147f3d71c3d36d951159f
+  specs:
+    stripe (1.11.0)
+      json (~> 1.8.1)
+      mime-types (~> 1.25)
+      rest-client (~> 1.4)
+
 GEM
+  remote: https://rubygems.org/
   specs:
     actionmailer (4.0.4)
       actionpack (= 4.0.4)
@@ -225,6 +235,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   shoulda-matchers
+  stripe!
   uglifier
   vcr
   webmock
