@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CashForCharity</title>
+  <title><%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <div class="row">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <%= link_to "Cash 2 Charities", root_path, class: "navbar-brand"  %>
+        <%= link_to "Add Charity", new_charity_path, class: "navbar-text"  %>
+      </nav>
 
-<%= yield %>
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <%= flash[:notice] %>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
 
+
+      <%= yield %>
+    </div>
+    <br><br><br><br><br><br>
+
+    <hr>
+    <div class="row">
+      <footer class="text-center">© 2014 €ASH2CHARITIE$.com</footer>
+    </div>
+  </div>
 </body>
 </html>

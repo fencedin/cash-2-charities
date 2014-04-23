@@ -1,0 +1,13 @@
+<%= content_for(:title, "Home | €ASH2CHARITIE$") %>
+<div class="page-header">
+  <h1>Cash 2 Charities</h1>
+  <small>Give us cash and we give it to charities for you!</small>
+</div>
+
+<% @charties.each do |charity| %>
+  <div class="col-md-3">
+    <div class="well">
+      <%= link_to "#{charity.name} : #{charity.mission}", charity_path(charity) %>
+    </div>
+  </div>
+<% end %>
