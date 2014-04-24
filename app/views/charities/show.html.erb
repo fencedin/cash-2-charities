@@ -11,13 +11,30 @@
     <p>Founded: <%= (@charity.founded).strftime('%B %d, %Y') %></p>
   </div>
 </div>
-<div class="row">
-  <%= link_to "One Time Donation To #{@charity.name}", "#", class: 'btn btn-success', data: { toggle: 'modal', target: '#donate-charity'} %>
+
+<div class="well">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <h4>Subscribe $15/month</h4>
+      <%= link_to "Subscribe", "#", class: 'btn btn-success', data: { toggle: 'modal', target: '#donate-charity-15'} %>
+    </div>
+    <div class="col-md-4 text-center">
+      <h4>Subscribe Custom Amount</h4>
+      <%= link_to "Subscribe", "#", class: 'btn btn-success', data: { toggle: 'modal', target: '#donate-charity'} %>
+    </div>
+    <div class="col-md-4 text-center">
+      <h4>One Time Donation</h4>
+      <%= link_to "Donate", "#", class: 'btn btn-success', data: { toggle: 'modal', target: '#donate-charity'} %>
+    </div>
+  </div>
 </div>
-<br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <div class="row">
-  <%= link_to 'Edit Charity', "#", class: 'btn btn-info', data: { toggle: 'modal', target: '#edit-charity'} %>
-  <%= link_to "Remove Charity", charity_path, method: "delete", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+  <div class="col-md-12">
+
+    <%= link_to 'Edit Charity', "#", class: 'btn btn-info', data: { toggle: 'modal', target: '#edit-charity'} %>
+    <%= link_to "Remove Charity", charity_path, method: "delete", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+  </div>
 </div>
 
 <div class="modal fade" id="donate-charity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -29,6 +46,20 @@
       </div>
       <div class="modal-body">
         <%= render 'charges/form' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="donate-charity-15" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Donate to <%= @charity.name %></h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'charges/form_15' %>
       </div>
     </div>
   </div>
@@ -47,3 +78,4 @@
     </div>
   </div>
 </div>
+
